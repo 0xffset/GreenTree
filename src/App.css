@@ -2,6 +2,36 @@
   text-align: center;
 }
 
+.alertError {
+  background-color: #f8d7da;
+  position: absolute;
+ 
+margin: 0 5px;
+  padding-top: 11px;
+  text-align: justify;
+  padding: 11px;
+  margin-top: 10px;
+  left: -205px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+ 
+}
+
+.alertSuccess {
+  background-color: #d4edda;
+  position: absolute;
+  padding: 11px;
+  margin-top: 10px;
+  left: -205px;
+ 
+  padding-top: 11px;
+  text-align: justify;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+ 
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
