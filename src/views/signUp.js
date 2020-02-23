@@ -9,6 +9,33 @@ import { Button, FormGroup, FormControl } from 'react-bootstrap';
 //styles
 import '../App.css'
 import render from 'react-dom'
+//handler to db firebase
+import  {firebaseHandler} from'../auth/handlerFirebase';
+
+const instance = new firebaseHandler();
+
+//function to build a oject with the dates
+const saveTo = (name, email, uid) => {
+    //get the current date
+    var CurrentDate = new Date();
+   //split date
+    var date = CurrentDate.getDate();
+    var mouth = CurrentDate.getMonth();
+    var year = CurrentDate.getFullYear();
+    var hoursAndMinutes = CurrentDate.toLocaleTimeString();
+  //build a new date
+  var formated_date = hoursAndMinutes  + " ~ " +(mouth+1) + "/" + date + "/" + year;
+ 
+   
+    const state = {
+        code: Math.floor(Math.random() * 10000),
+        name: name,
+        email: email,
+        created_at: formated_date,
+        uid: uid
+    }
+    instance.saveTo(state);
+}
 
 
 
@@ -18,15 +45,21 @@ const SignUp = ({ history }) => {
     //Arrow function to handler Sign up dates
     const handlerSignUp = useCallback(async event => {
         event.preventDefault();
-        const { email, password } = event.target.elements;
+        const { email, password, name } = event.target.elements;
         try {
-            await FIREBASE_CONFIG
+       const userAuth =  await FIREBASE_CONFIG
             .auth()
             .createUserWithEmailAndPassword(email.value, password.value)
-            .then(res => {
-                render.render(<div className="alertSuccess">The account was created successfully</div>, document.getElementById("alerts"))
-                
+            .then(function(data) {
+                return data.user.uid
+               console.log()
             })
+    
+            //setting the dates to db
+            console.log(userAuth)
+            saveTo(name.value, email.value, userAuth)
+             
+            render.render(<div className="alertSuccess">The account was created successfully</div>, document.getElementById("alerts"))
 
 
         }
@@ -46,6 +79,15 @@ const SignUp = ({ history }) => {
                 <h1>Sign Up</h1>
             </div>
             <form onSubmit={handlerSignUp}>
+            <FormGroup className="form" controlId="signin" size="large">
+                 <label>Full name</label>
+                    <FormControl className="form-control" autoFocus
+                        type="text"
+                        name="name"
+    
+                        
+                         />
+                </FormGroup>
                 <FormGroup className="form" controlId="signin" size="large">
                  <label>Email</label>
                     <FormControl className="form-control" autoFocus
