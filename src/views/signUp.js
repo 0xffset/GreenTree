@@ -58,15 +58,21 @@ const SignUp = ({ history }) => {
             //setting the dates to db
             console.log(userAuth)
             saveTo(name.value, email.value, userAuth)
-             
-            render.render(<div className="alertSuccess">The account was created successfully</div>, document.getElementById("alerts"))
+            history.push('/') 
+            
+           
+           
+           
+           
 
 
         }
         catch(e) {
             const error = String(e)
             console.log(error)
-            render.render(<div className="alertError">{error}</div>, document.getElementById("alerts"))
+            render.render(<div className="custom-alert alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Oops!</strong> {error}
+            </div>, document.getElementById("alerts"))
             
             
         }
@@ -81,7 +87,7 @@ const SignUp = ({ history }) => {
             <form onSubmit={handlerSignUp}>
             <FormGroup className="form" controlId="signin" size="large">
                  <label>Full name</label>
-                    <FormControl className="form-control" autoFocus
+                    <FormControl id="input" className="form-control" autoFocus
                         type="text"
                         name="name"
     
@@ -90,7 +96,7 @@ const SignUp = ({ history }) => {
                 </FormGroup>
                 <FormGroup className="form" controlId="signin" size="large">
                  <label>Email</label>
-                    <FormControl className="form-control" autoFocus
+                    <FormControl id="input" className="form-control" autoFocus
                         type="text"
                         name="email"
     
@@ -99,13 +105,13 @@ const SignUp = ({ history }) => {
                 </FormGroup>
                 <FormGroup className="form" controlId="signin" size="large">
                  <label>Password</label>
-                    <FormControl  className="form-control" 
+                    <FormControl id="input"  className="form-control" 
                         type="password"
                         name="password"
                          />
                 </FormGroup>
                 
-                
+                <Link to="/" className="link" id="href">I have an account</Link>
                 <Button className="btn btn-light btn-outline-dark" block size="large" type="submit">Sign Up</Button>
             </form>
             </div>

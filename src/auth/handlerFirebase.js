@@ -22,7 +22,7 @@ export class firebaseHandler {
 }
 
 
- getAll(uid) {
+ getCode(uid) {
        
     
     const ref = FIREBASE.database().ref();

@@ -38,9 +38,11 @@ const SignUp = ({ history }) => {
            FIREBASE_CONFIG.auth().onAuthStateChanged(async function(user) {
              if(user) {
                  var useruid = user.uid;
-                 const code =  await intance.getAll(useruid);
+                 const code =  await intance.getCode(useruid);
                  code.forEach(function(child) {
-                     console.log(child.val().code)
+                    
+                     const code = child.val().code;
+                       history.push(`/home/${code}`)
                  })
                 
              }
@@ -55,7 +57,11 @@ const SignUp = ({ history }) => {
       
       catch (error) {
         const e = String(error)
-        render.render(<div className="alertError">{e}</div>, document.getElementById("alerts"))
+        render.render(<div id="alert" className="custom-alert alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Oops!</strong> {e}
+       
+      </div>, document.getElementById("alerts"))
+      
       }
     }, [history]);
   
@@ -68,7 +74,7 @@ const SignUp = ({ history }) => {
           <form onSubmit={handleSignUp}>
               <FormGroup className="form" controlId="signin" size="large">
                <label>Email</label>
-                  <FormControl className="form-control" autoFocus
+                  <FormControl className="form-control" id="input" autoFocus
                       type="text"
                       name="email"
   
@@ -77,14 +83,14 @@ const SignUp = ({ history }) => {
               </FormGroup>
               <FormGroup className="form" controlId="signin" size="large">
                <label>Password</label>
-                  <FormControl  className="form-control" 
+                  <FormControl  id="input"className="form-control" 
                       type="password"
                       name="password"
                        />
               </FormGroup>
               
-              <Link to="/signup/" className="link-signup">or create a account</Link>
-              <Button className="btn btn-light btn-outline-dark" block size="large" type="submit">Sign In</Button>
+              <Link to="/signup/" className="link" id="href">or create a account</Link>
+              <Button  className="btn btn-light btn-outline-dark" block size="large" type="submit">Sign In</Button>
           </form>
           </div>
       </div>
