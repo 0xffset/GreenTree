@@ -3,21 +3,29 @@ import React, {useCallback} from 'react'
 //import bootstrap componets
 import { Button, FormGroup, FormControl } from 'react-bootstrap';
 //import Link 
-import { Link } from 'react-router-dom';
+import {Redirect, Link } from 'react-router-dom';
 //withRouter import 
 import {withRouter} from 'react-router';
 //call our firebase config
 import FIREBASE_CONFIG from '../auth/firebase';
-
+//import localstorege accions
+import {localstorage} from '../accions/localstorege'
+//Import firebase accions
 import  {firebaseHandler} from'../auth/handlerFirebase';
 
 import render from 'react-dom';
 
-
+//localstorege intance
+const intanceLocalStorege = new localstorage();
+//firebase intance
 const intance = new firebaseHandler();
 
 //function to handler the signIn submit
+
 const SignUp = ({ history }) => {
+
+    
+
     const handleSignUp = useCallback(async event => {
       event.preventDefault();
       const { email, password } = event.target.elements;
@@ -31,18 +39,20 @@ const SignUp = ({ history }) => {
           .then(set => {
               
             
-         //  history.push("/home/user=" + userId)
          })
 
-         
+        
            FIREBASE_CONFIG.auth().onAuthStateChanged(async function(user) {
              if(user) {
                  var useruid = user.uid;
+                 intanceLocalStorege.setItemLocalStorege("authToken", String(useruid))
                  const code =  await intance.getCode(useruid);
                  code.forEach(function(child) {
-                    
-                     const code = child.val().code;
-                       history.push(`/home/${code}`)
+
+                  const authToken = intanceLocalStorege.getItemLocalStorege("authToken")
+        
+                  const code = child.val().code;
+                  history.push(`/home/${code}`)
                  })
                 
              }
