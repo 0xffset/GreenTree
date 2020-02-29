@@ -5,6 +5,7 @@ import SignUp from './views/signUp';
 import SignIn from './views/signIn';
 import Home from './views/home';
 
+
 import * as server from './serviceWorker';
 const ROUTING = (
     <Router>
@@ -12,7 +13,7 @@ const ROUTING = (
             <Route path="/" exact component= {SignIn} />
             <Route path="/signup" component= {SignUp} />
             <Route path="/home/:code" component= {Home} />
-           
+            
         </div>
     </Router>
 )
