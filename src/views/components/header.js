@@ -3,32 +3,81 @@ import React from 'react'
 import connect from 'redux'
 
 import {Redirect ,Link} from 'react-router-dom'
-
+import FIREBASE from './../../auth/firebase'
 
 import {localstorage} from '../../accions/localstorege'
+
+
+
 const getLocalStorage = new localstorage();
+const getCode = new localstorage();
 
 class UIHeader extends React.Component {
 
     constructor(props)
     {
         super(props)
+        this.code = getCode.getItemLocalStorege("codeUser")
         this.LogOut = this.LogOut.bind(this);
+        this.ref = FIREBASE.firestore().collection("users").where("code", "==", parseInt(this.code))
+        this.val = null
+       
+       
         const authToken = getLocalStorage.getItemLocalStorege("authToken")
         
         let loggedIn = true
         if (authToken == null) {
             loggedIn = false
         }
-
         this.state = {
-            loggedIn
+          users: [],
+          loggedIn
         }
+
+        
+
+        
+     }
+    
+
+     onCollectionUpdate = (querySnapshot)=> {
+      const users = []
+       
+    
+       querySnapshot.forEach(function(doc) {
+      console.log("Holas")
+     const {code, created_at, email, name} = doc.data();
+     users.push({
+       key: doc.id,
+       code: code,
+       doc,
+       created_at,
+       email,
+       name,
+     });
+
+    });
+    this.setState({
+      users
+    })
+    
+      
+       
+       
+     
+
+     }
+
+     componentDidMount()
+     {
+        this.val = this.ref.onSnapshot(this.onCollectionUpdate)
+      
      }
 
     LogOut(e) {
        
         getLocalStorage.removeItemLocalStorage("authToken")
+        getLocalStorage.removeItemLocalStorage("codeUser")
     }
 
 
@@ -51,6 +100,34 @@ class UIHeader extends React.Component {
     </div>
   </div>
 </nav>
+<div className="button">
+<button type="button" class="btn btn-success">Run</button>
+</div>
+<div className="user-profile">
+ <div className="user">
+  
+ {this.state.users.map(users =>
+ <ul className="ul-user">
+    <li className="date">Code: {users.code}</li>
+    <li className="date">Name: {users.name}</li>
+    <li className="date">Email: {users.email}</li>
+    <li className="date">Created at: {users.created_at}</li>
+    </ul>
+    
+   
+    
+    )}
+
+ </div>
+
+
+
+
+
+
+   
+</div>
+
           </>
         );
     }

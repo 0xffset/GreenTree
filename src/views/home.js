@@ -1,8 +1,8 @@
 import React, {Componet} from 'react'
 //HEADER
 import UIHeader from './components/header'
-import profileUser from './components/totalPoints'
-import Historial from './components/historial'
+import ProfileUser from './components/totalPoints'
+
 
 export default class App extends React.Component {
     
@@ -10,8 +10,8 @@ export default class App extends React.Component {
         return (
             <>
             <UIHeader />
-            <profileUser />
-            <Historial />
+            <ProfileUser />
+            
             </>
         )
     }

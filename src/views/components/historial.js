@@ -25,7 +25,7 @@ export default class Historial extends React.Component {
         return (
             <>
             <h3>Historial</h3>
-        <ul className="historial"><li className="historial-li">Holas</li></ul>
+              <ul className="historial"><li className="historial-li">Holas</li></ul>
             </>
         );
     }

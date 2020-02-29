@@ -2,7 +2,7 @@ import React from 'react'
 import Historial from './historial.js'
 
 
-export default class profileUser extends React.Component {
+export default class ProfileUser extends React.Component {
 
     constructor(props){
         super(props)
@@ -18,6 +18,7 @@ export default class profileUser extends React.Component {
     render() {
         return (
             <>
+            <div className="container-fluid">
              <div className="inc-profile-container">
                  <div>
                      <h4>Points</h4>
@@ -29,7 +30,9 @@ export default class profileUser extends React.Component {
                  </div>
             </div>
             <Historial />
+            </div>
             </>
+            
 
         );
     }

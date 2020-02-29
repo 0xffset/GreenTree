@@ -35,6 +35,8 @@ const saveTo = (name, email, uid) => {
         uid: uid
     }
     instance.saveTo(state);
+    
+    instance.createdNewUser(state.code, state.created_at, state.email, state.name)
 }
 
 

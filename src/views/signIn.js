@@ -24,6 +24,8 @@ const intance = new firebaseHandler();
 
 const SignUp = ({ history }) => {
 
+  
+
     
 
     const handleSignUp = useCallback(async event => {
@@ -52,6 +54,7 @@ const SignUp = ({ history }) => {
                   const authToken = intanceLocalStorege.getItemLocalStorege("authToken")
         
                   const code = child.val().code;
+                  intanceLocalStorege.setItemLocalStorege("codeUser", String(code))
                   history.push(`/home/${code}`)
                  })
                 

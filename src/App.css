@@ -14,11 +14,53 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+
+  
+
   
  
 }
+.container {
+ 
+  justify-content: center;
+  
+}
 
+.user-profile{
+  display: flex;
+  position: relative;
+  
+  
+}
 
+.user ul {
+  float: right;
+  text-decoration: none;
+}
+.date {
+  letter-spacing: 3px;
+ 
+  
+}
+
+.date:hover {
+  transform: scale(1.2);
+  padding: 0.8s linear;
+  transition: 1px ease;
+}
+
+.user-profile {
+  padding:  0 20px;
+  display: flex;
+  flex-direction: row;
+  letter-spacing: 1px;
+
+}
+
+.user-profile > div {
+  flex: 1;
+
+}
 
 .inc-profile-container > div {
   flex: 1;
@@ -51,6 +93,14 @@
   margin-bottom: 40px;
   
 
+}
+
+.button {
+  padding: 0 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .historial-li {

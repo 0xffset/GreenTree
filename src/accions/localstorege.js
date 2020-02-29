@@ -2,7 +2,7 @@ export class localstorage
 {
     setItemLocalStorege(tokenName,tokenValue)
     {
-        console.log(`${tokenName} and ${tokenValue}`)
+       
         return localStorage.setItem(tokenName, tokenValue)
     }
 

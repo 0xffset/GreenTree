@@ -30,8 +30,18 @@ export class firebaseHandler {
     return   refChild.once("value", function(snapshot) {
         
     });
-    
-    
+}
+
+createdNewUser(code, created_at, email, name) {
+    console.log("Hey")
+    const ref = FIREBASE.firestore().collection('users');
+    ref.add({
+        code,
+        created_at,
+        email,
+        name,
+
+    }).then(() => console.log("New user"));
 }
 
 }
