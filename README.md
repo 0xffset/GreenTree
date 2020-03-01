@@ -2,18 +2,18 @@
 
 ## GreenTree
 
-This a project to safe the world using Machine Learning. Emjoy greentree.now.sh
+This a project to safe the world using Machine Learning. Emjoy the [demo](https://greentree.now.sh)
 
 ## Stack 
 
 
-React.js
-Firebase
-Tensorflow: cocoSsd
+..*React.js
+..*Firebase
+..*Tensorflow: cocoSsd
 
 ### `npm install`
 
-Runs this commant and install it all dependecies that you to run it on local server.
+Runs this command and installs it all dependencies that you need to run it on local server. 
 
 ### `npm start`
 
