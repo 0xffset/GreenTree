@@ -2,7 +2,7 @@
 
 ## GreenTree
 
-This a project to safe the world using Machine Learning. Emjoy the [demo](greentree.now.sh) 
+This a project to safe the world using Machine Learning. Emjoy greentree.now.sh
 
 ## Stack 
 
