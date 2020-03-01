@@ -54,7 +54,7 @@ const SignUp = ({ history }) => {
             .createUserWithEmailAndPassword(email.value, password.value)
             .then(function(data) {
                 return data.user.uid
-               console.log()
+               
             })
     
             //setting the dates to db
@@ -78,7 +78,7 @@ const SignUp = ({ history }) => {
             
             
         }
-    }, []);
+    }, [history]);
 
     return (
         <div className="d-flex container justify-content-center">

@@ -3,7 +3,7 @@ import React, {useCallback} from 'react'
 //import bootstrap componets
 import { Button, FormGroup, FormControl } from 'react-bootstrap';
 //import Link 
-import {Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //withRouter import 
 import {withRouter} from 'react-router';
 //call our firebase config
@@ -50,10 +50,7 @@ const SignUp = ({ history }) => {
                  intanceLocalStorege.setItemLocalStorege("authToken", String(useruid))
                  const code =  await intance.getCode(useruid);
                  code.forEach(function(child) {
-
-                  const authToken = intanceLocalStorege.getItemLocalStorege("authToken")
-        
-                  const code = child.val().code;
+                   const code = child.val().code;
                   intanceLocalStorege.setItemLocalStorege("codeUser", String(code))
                   history.push(`/home/${code}`)
                  })

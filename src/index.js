@@ -4,6 +4,7 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 import SignUp from './views/signUp';
 import SignIn from './views/signIn';
 import Home from './views/home';
+import AI from './accions/AI'
 
 
 import * as server from './serviceWorker';
@@ -13,6 +14,7 @@ const ROUTING = (
             <Route path="/" exact component= {SignIn} />
             <Route path="/signup" component= {SignUp} />
             <Route path="/home/:code" component= {Home} />
+            <Route path="/AI" component= {AI} />
             
         </div>
     </Router>
