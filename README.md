@@ -7,9 +7,9 @@ This a project to safe the world using Machine Learning. Emjoy the [demo](https:
 ## Stack 
 
 
-..*React.js
-..*Firebase
-..*Tensorflow: cocoSsd
+..* React.js
+..* Firebase
+..* Tensorflow: cocoSsd
 
 ### `npm install`
 
