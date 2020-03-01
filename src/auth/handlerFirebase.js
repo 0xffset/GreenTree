@@ -12,10 +12,7 @@ export class firebaseHandler {
         return  await FIREBASE.database().ref('users/' + object.uid).push(object);
  }
 
-
-
-
- getCode(uid) {
+getCode(uid) {
        
     
     const ref = FIREBASE.database().ref();
@@ -26,7 +23,7 @@ export class firebaseHandler {
 }
 
 createdNewUser(code, created_at, email, name) {
-    console.log("Hey")
+   
     const ref = FIREBASE.firestore().collection('users');
     ref.add({
         code,

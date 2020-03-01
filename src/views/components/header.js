@@ -6,9 +6,6 @@ import {Redirect ,Link} from 'react-router-dom'
 import FIREBASE from './../../auth/firebase'
 
 import {localstorage} from '../../accions/localstorege'
-
-
-
 const getLocalStorage = new localstorage();
 const getCode = new localstorage();
 
