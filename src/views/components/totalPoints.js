@@ -3,12 +3,11 @@ import Historial from './historial.js'
 import { localstorage } from './../../accions/localstorege'
 import FIREBASE from './../../auth/firebase';
 const ls = new localstorage();
-
 var bottles_GLOBAL = window.$bottles_GLOBAL;
 var poinst_GLOBAL = window.$bottles_GLOBAL;
-
+// asdad
 export default class ProfileUser extends React.Component {
-
+  
     constructor(props) {
         super(props)
         this.code = ls.getItemLocalStorege("codeUser")
