@@ -1,11 +1,16 @@
+//Import React 
 import React from 'react'
+//Import the hisotial of transactions 
 import Historial from './historial.js'
+//Repository of localstorage
 import { localstorage } from './../../accions/localstorege'
+//Firebase configs
 import FIREBASE from './../../auth/firebase';
+//Intanecs
 const ls = new localstorage();
 var bottles_GLOBAL = window.$bottles_GLOBAL;
 var poinst_GLOBAL = window.$bottles_GLOBAL;
-// asdad
+
 export default class ProfileUser extends React.Component {
   
     constructor(props) {
@@ -33,10 +38,7 @@ export default class ProfileUser extends React.Component {
                 querySnapshot.forEach(doc => {
                     count += 1;
                     bottles_GLOBAL = count
-
-
-
-                });
+                  });
                 return bottles
             });
 
@@ -65,8 +67,6 @@ export default class ProfileUser extends React.Component {
             bottles: p,
             points: 0
         })
-
-
         return p
 
 

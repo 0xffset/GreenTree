@@ -1,18 +1,21 @@
 import React from 'react'
 
-//Tensorflow 
+//Tensorflow  
 //import * as tf from '@tensorflow/tfjs'
 import * as coco from '@tensorflow-models/coco-ssd'
-
 class AI extends React.Component {
     videoREF = React.createRef();
     canvasREF = React.createRef();
-
+    
+   
     styles = {
-        position: 'fixed',
-        top: 150,
-        left: 150
+        position: 'relative',
+        display: 'flex',
+        right: 100,
+        left: 150,
     }
+
+    
 
     detectVideoFrame = (model, video) => {
         model.detect(video).then((predict) => {

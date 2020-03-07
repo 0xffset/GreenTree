@@ -99,7 +99,7 @@ const SignUp = ({ history }) => {
                        />
               </FormGroup>
               
-              <Link to="/signup/" className="link" id="href">or create a account</Link>
+              <Link to="/signup/" className="link" id="href">or create an account</Link>
               <Button  className="btn btn-light btn-outline-dark" block size="large" type="submit">Sign In</Button>
           </form>
           </div>

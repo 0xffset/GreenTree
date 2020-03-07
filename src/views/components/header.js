@@ -30,21 +30,14 @@ class UIHeader extends React.Component {
           users: [],
           loggedIn
         }
-
-        
-
-        
-     }
+      }
     
 
      onCollectionUpdate = (querySnapshot)=> {
       const users = []
-       
-    
-       querySnapshot.forEach(function(doc) {
-      console.log("Holas")
-     const {code, created_at, email, name} = doc.data();
-     users.push({
+      querySnapshot.forEach(function(doc) {
+      const {code, created_at, email, name} = doc.data();
+      users.push({
        key: doc.id,
        code: code,
        doc,
@@ -57,13 +50,7 @@ class UIHeader extends React.Component {
     this.setState({
       users
     })
-    
-      
-       
-       
-     
-
-     }
+  }
 
      componentDidMount()
      {
@@ -76,7 +63,6 @@ class UIHeader extends React.Component {
         getLocalStorage.removeItemLocalStorage("authToken")
         getLocalStorage.removeItemLocalStorage("codeUser")
     }
-
 
     render() {
 
