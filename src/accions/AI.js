@@ -1,3 +1,4 @@
+
 import React from 'react'
 import {localstorage} from '../accions/localstorege'
 import {firebaseHandler} from '../auth/handlerFirebase'
@@ -190,5 +191,8 @@ class AI extends React.Component {
         )
     }
 }
+
+
+
 
 export default AI

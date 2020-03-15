@@ -1,3 +1,4 @@
+
 //import react 
 import React, {useCallback} from 'react'
 //import bootstrap componets
@@ -107,4 +108,5 @@ const SignUp = ({ history }) => {
     );
   };
   
+
   export default withRouter(SignUp);

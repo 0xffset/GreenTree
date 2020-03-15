@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { localstorage } from './../../accions/localstorege'
 import FIREBASE from './../../auth/firebase'
@@ -50,4 +51,5 @@ export default class Historial extends React.Component {
             </>
         );
     }
+
 }

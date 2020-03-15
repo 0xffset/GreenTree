@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Historial from './historial.js'
 import { localstorage } from './../../accions/localstorege'
@@ -102,4 +103,5 @@ export default class ProfileUser extends React.Component {
 
         );
     }
+
 }
