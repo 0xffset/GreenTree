@@ -6,7 +6,7 @@ export default class Historial extends React.Component {
     constructor(props) {
         super(props)
         this.code = ls.getItemLocalStorege("codeUser")
-        this.ref = FIREBASE.firestore().collection("bottles").where("code_user", "==", parseInt(this.code))
+        this.ref = FIREBASE.firestore().collection("bottles").where("codeUser", "==", parseInt(this.code))
         this.val = null;
         this.state = {
             historial: []
@@ -16,11 +16,11 @@ export default class Historial extends React.Component {
     onShowCollection = (querySnapshot) => {
         const historial = []
         querySnapshot.forEach(function (values) {
-            const { code, Latitude, Longitude } = values.data();
+            const { code, latitude, longitude } = values.data();
             historial.push({
                 code,
-                Latitude,
-                Longitude,
+                latitude,
+                longitude,
             });
         });
         this.setState({
@@ -40,7 +40,7 @@ export default class Historial extends React.Component {
 
                 {this.state.historial.map(historial =>
                     <ul className="historial">
-                        <li className="historial-li">Code: {historial.code} | Latitude: {historial.Latitude} | Longitude: {historial.Longitude}</li>
+                        <li className="historial-li">Code: {historial.code} | Latitude: {historial.latitude} | Longitude: {historial.longitude}</li>
 
                     </ul>
 

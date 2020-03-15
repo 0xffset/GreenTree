@@ -2,7 +2,7 @@ import * as firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/app';
 
-const settings = {timestampsInSnapshots: true};
+
 const firebaseConfig = {
     apiKey: "AIzaSyDFHj_OpSfe4ES-7IYCyMJwTu69E028tRI",
     authDomain: "greentree-1a2c0.firebaseapp.com",
@@ -15,7 +15,6 @@ const firebaseConfig = {
   };
 
   const FIREBASE = firebase.initializeApp(firebaseConfig);
-  FIREBASE.firestore().settings(settings)
   export default FIREBASE;
 
 

@@ -11,8 +11,8 @@ export default class ProfileUser extends React.Component {
     constructor(props) {
         super(props)
         this.code = ls.getItemLocalStorege("codeUser")
-        this.ref = FIREBASE.firestore().collection("bottles").where("code_user", '==', parseInt(this.code))
-        this.refPoints = FIREBASE.firestore().collection("points").where("code_user", "==", parseInt(this.code))
+        this.ref = FIREBASE.firestore().collection("bottles").where("codeUser", '==', parseInt(this.code))
+        this.refPoints = FIREBASE.firestore().collection("points").where("codeUser", "==", parseInt(this.code))
         this.bottles = null
         this.points = null
         this.state = {
