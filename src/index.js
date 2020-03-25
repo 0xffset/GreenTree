@@ -5,6 +5,7 @@ import SignUp from './views/signUp';
 import SignIn from './views/signIn';
 import Home from './views/home';
 import AI from './accions/AI'
+import  MapContainer from './views/components/maps'
 
 
 import * as server from './serviceWorker';
@@ -14,7 +15,7 @@ const ROUTING = (
             <Route path="/" exact component= {SignIn} />
             <Route path="/signup" component= {SignUp} />
             <Route path="/home/:code" component= {Home} />
-            <Route path="/AI" component= {AI} />
+            <Route path="/test" component={MapContainer} />
             
         </div>
     </Router>
