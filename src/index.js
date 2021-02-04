@@ -6,7 +6,7 @@ import SignIn from './views/signIn';
 import Home from './views/home';
 import AI from './accions/AI'
 import  MapContainer from './views/components/maps'
-
+import * as tfjs from '@tensorflow/tfjs';
 
 import * as server from './serviceWorker';
 const ROUTING = (
